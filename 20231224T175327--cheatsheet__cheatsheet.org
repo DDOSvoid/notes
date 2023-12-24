@@ -1,0 +1,28 @@
+#+title:      Cheatsheet
+#+date:       [2023-12-24 Sun 17:53]
+#+filetags:   :cheatsheet:
+#+identifier: 20231224T175327
+
+* emacs
+** key bindings
+| key     | commands and desciption              |
+|---------+--------------------------------------|
+| C-c d n | denote                               |
+| C-c n f | consult-notes                        |
+| C-c C-, | org-insert-structure-template        |
+| C-c '   | org-edit-special (org-edit-src-code) |
+|         | denote-keywords-add                  |
+|         | denote-keywords-remove               |
+|         | denote-rename-file                   |
+|         |                                      |
+** websites
++ [[https://remacs.cc/posts/][remacs的世界]]
++ 
+* wsl
+** websites
++ [[https://blog.csdn.net/xiangxianghehe/article/details/122856771][Ubuntu 22.04换国内源 清华源 阿里源 中科大源 163源]]
++ [[https://blog.csdn.net/fangye945a/article/details/123832623][WSL2启动时提示：参考的对象类型不支持尝试的操作]]
++ [[https://blog.csdn.net/dddgggd/article/details/132306786][安装WSL时，出现错误0x800701bc]]
++ [[https://blog.csdn.net/SGchi/article/details/132362018][wsl 更换存储位置]]
++ 
+  

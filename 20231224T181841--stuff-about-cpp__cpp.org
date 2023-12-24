@@ -1,0 +1,59 @@
+#+title:      Stuff about Cpp
+#+date:       [2023-12-24 Sun 18:18]
+#+filetags:   :cpp:
+#+identifier: 20231224T181841
+
+#+STARTUP: overview
+
+* Implementation
+** Implement a class that deconstruts subclass objects through a parent class pointer without a virtual destructor in the parent class
+  [[https://zhuanlan.zhihu.com/p/662637642][C++面试真题！如何实现一个类，在父类没有虚析构函数的情况下，通过父类指针析构子类对象？]]
+  #+begin_src c++
+    
+    #include <iostream> 
+    #include <memory>
+    #include <functional> 
+
+    struct base {
+        base() = default;
+        ~base() {
+            std::cout << "~base()" << std::endl;
+        }
+    };
+
+    struct derived : base {
+        derived() = default;
+        ~derived() {
+            std::cout << "~derived()" << std::endl; 
+        }
+    };
+
+    template <typename T>
+    struct void_ptr {
+        void_ptr() {}
+
+        void_ptr(std::nullptr_t) {}
+
+        template <typename U>
+        void_ptr(U ptr) : ptr_(ptr) {
+            deleter_ = [ptr]() {
+                delete ptr; 
+            };
+        }
+
+        ~void_ptr() {
+            std::invoke(deleter_); 
+        }
+
+        std::function<void()> deleter_; 
+        T* ptr_{nullptr};
+    };
+
+    int main() {
+        void_ptr<base> vp = new derived; 
+    }
+  #+end_src
+
+* Guidelines
+** Use std::forward only when perfect-forwarding
+[[https://quuxplusone.github.io/blog/2023/05/27/dont-forward-non-forwarding-references/][Don't forward things that aren't forwarding references]]

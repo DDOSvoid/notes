@@ -1,0 +1,13 @@
+#+title:      STL
+#+date:       [2023-12-24 Sun 18:05]
+#+filetags:   :cpp:
+#+identifier: 20231224T180532
+
+* std::shared_ptr
+
+* std::alocator
+** websites
++ [[https://zhuanlan.zhihu.com/p/620583884][STL Allocator 内存分配全揭秘]]
++ [[https://zhuanlan.zhihu.com/p/354191253][深入剖析STL内存分配器allocator及其萃取器]]
++ [[https://www.zhihu.com/question/274802525][C++中为什么要有allocator类？]]
++ 
