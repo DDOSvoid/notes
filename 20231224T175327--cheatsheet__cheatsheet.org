@@ -24,5 +24,11 @@
 + [[https://blog.csdn.net/fangye945a/article/details/123832623][WSL2启动时提示：参考的对象类型不支持尝试的操作]]
 + [[https://blog.csdn.net/dddgggd/article/details/132306786][安装WSL时，出现错误0x800701bc]]
 + [[https://blog.csdn.net/SGchi/article/details/132362018][wsl 更换存储位置]]
-+ 
++ [[https://www.zhihu.com/question/435906813/answer/2845515380][如何让Windows的代理作用于wsl2?]]
++ [[https://zhuanlan.zhihu.com/p/153124468][为 WSL2 一键设置代理]]
+
+* git
+** websites
++ [[https://blog.csdn.net/weixin_43452467/article/details/121704661][remote: Support for password authentication was removed on August 13, 2021. Please use a personal ac]]
   
+
