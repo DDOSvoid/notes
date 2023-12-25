@@ -26,6 +26,14 @@
 + [[https://blog.csdn.net/SGchi/article/details/132362018][wsl 更换存储位置]]
 + [[https://www.zhihu.com/question/435906813/answer/2845515380][如何让Windows的代理作用于wsl2?]]
 + [[https://zhuanlan.zhihu.com/p/153124468][为 WSL2 一键设置代理]]
++ [[https://learn.microsoft.com/zh-cn/windows/wsl/tutorials/gui-apps][在适用于 Linux 的 Windows 子系统上运行 Linux GUI 应用]]
++ 
+
+* ubuntu
+** package manager
++ [[https://www.zhihu.com/question/535564623/answer/2520252064][apt-get install 和 apt install 的区别是什么？ - Raidenxe的回答 - 知乎]]
++ [[https://www.zhaowenyu.com/linux-doc/packages/deb/etc-apt-sources-list.html][客户端 /etc/apt/sources.list 配置文件]]
++ 
 
 * git
 ** token
