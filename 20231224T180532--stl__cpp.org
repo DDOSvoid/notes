@@ -5,9 +5,44 @@
 
 * std::shared_ptr
 
+* std::initializer
+** Websites
++ [[https://zhuanlan.zhihu.com/p/353368820][大括号之谜——C++的列表初始化语法解析]]
+
 * std::alocator
-** websites
+** Websites
 + [[https://zhuanlan.zhihu.com/p/620583884][STL Allocator 内存分配全揭秘]]
 + [[https://zhuanlan.zhihu.com/p/354191253][深入剖析STL内存分配器allocator及其萃取器]]
 + [[https://www.zhihu.com/question/274802525][C++中为什么要有allocator类？]]
 + 
+
+* std::array
+** Websites
++ [[https://zhuanlan.zhihu.com/p/352914170][C++语言中std::array的神奇用法总结]]
++ 
+
+** Usage
+*** Work with CTAD
+  #+begin_src cpp
+    std::array arr = { 0, 1, 2, 3, 4, 5, 6 }; // std::array<int> arr
+    // what about std::array<uint32_t> ? 
+  #+end_src
+*** Use std::to_array in C++20
+
+*** Difference between std::array and array
+#+begin_src cpp
+  struct S {
+    int x, y;
+  };
+
+  int main() {
+    int a1[3]{1, 2, 3};
+    std::array<int, 3> a2{1, 2, 3};
+    S a3[3]{{1, 2}, {3, 4}, {5, 6}};
+    // std::array<S, 3> a4{{1, 2}, {3, 4}, {5, 6}}; error: too many initializers for 'std::array<S, 3>'
+    std::array<S, 3> a5{{{1, 2}, {3, 4}, {5, 6}}};
+  }
+#+end_src
+
+因为std::array本身也是一个聚合类，类似于struct array { T data[N]; }
+

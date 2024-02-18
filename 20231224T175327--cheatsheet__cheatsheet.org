@@ -15,6 +15,7 @@
 |         | denote-keywords-remove               |
 |         | denote-rename-file                   |
 | C-c C-c | with-editor-finish (magit)           |
+| C-x g   | magit-status                         |
 |         |                                      |
 ** websites
 + [[https://remacs.cc/posts/][remacs的世界]]

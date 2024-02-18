@@ -3,10 +3,7 @@
 #+filetags:   :cpp:
 #+identifier: 20231224T181841
 
-#+STARTUP: overview
-
-* Implementation
-** Implement a class that deconstruts subclass objects through a parent class pointer without a virtual destructor in the parent class
+* Implement a class that deconstruts subclass objects through a parent class pointer without a virtual destructor in the parent class
   [[https://zhuanlan.zhihu.com/p/662637642][C++面试真题！如何实现一个类，在父类没有虚析构函数的情况下，通过父类指针析构子类对象？]]
   #+begin_src c++
     
@@ -54,6 +51,56 @@
     }
   #+end_src
 
-* Guidelines
-** Use std::forward only when perfect-forwarding
+* Use std::forward only when perfect-forwarding
 [[https://quuxplusone.github.io/blog/2023/05/27/dont-forward-non-forwarding-references/][Don't forward things that aren't forwarding references]]
+
+* Aggregate
+*** Aggregate class
++ [[https://en.cppreference.com/w/cpp/language/aggregate_initialization][Definitions]]
+  
+*** Aggregate initialization
++ Brace elision
+  #+begin_src cpp
+    struct S {
+      int x, y;
+    };
+
+    template <typename T, size_t N>
+    struct array {
+      T data[N];
+    };
+
+    int main() {
+      array<S, 3> arr1{{{1, 2}, {3, 4}, {5, 6}}};
+      array<S, 3> arr2{1, 2, 3, 4, 5, 6};
+      return 0; 
+    }
+  #+end_src
+
+* Alignment
+** Blogs
++ [[https://zhuanlan.zhihu.com/p/30007037][C/C++内存对齐详解]]
++ [[https://zhuanlan.zhihu.com/p/417061548][深入了解 | 内存对齐之 alignof、alignas 、aligned_storage、align 深度剖析]]
++ [[https://www.zhihu.com/question/23791224/answer/2843036089][什么是字节对齐，为什么要对齐?]]
++ 
+
+** Descriptions
++ 所有C++对象都有一个alignment requirement（对齐要求）的属性，这个值可以通过alignof操作符或者std::alignment_of函数获取
++ alignas可以改变类或者类成员的alignment requirement。alignas后的新alignment requirement必须要是2的次幂且大于等于原来的alignment requirement
++ 预处理指令#pragma pack(n)可以指定“有效对齐“，指定后的效果相当于使对象的alignment requirement与n取最小值
+  
++ 如何计算类的大小以及alignment requirement
+  + 首先类的每个成员的offset要求为该成员的alignment requirement和有效对齐的最小值的整数倍（如果通过alignas指定，则忽视有效对齐值）
+  + 类的alignment requirement为所有成员的alignment requirement的最大值
+
++ 内存对齐的影响
+  + CPU 访问内存以一个字（word）为单位，在 32 位处理器上，每次访存获得 4 bytes，在 64 位处理器上为 8 bytes。
+  + 未对齐的内存访问（unaligned memory access），其影响因体系结构而异。
+    + ARM v5 及之前的 ARM 处理器和 MIPS 处理器不支持 unaligned memory access
+    + 可能会造成性能问题
+      + 在 ARM v6/7 上未对齐的访问通常需要许多额外的周期才能完成
+      + 在现代的 x86 处理器上，未对其的内存访问没有明显的性能损失。
+    + 破坏访存的原子性：Single load and store are naturally atomic
+
++ 什么时候不需要内存对齐：内存不对齐没有影响或内存吃紧 
+  
