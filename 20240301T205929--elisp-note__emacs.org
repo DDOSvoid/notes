@@ -1,0 +1,30 @@
+#+title:      Elisp Note
+#+date:       [2024-03-01 Fri 20:59]
+#+filetags:   :emacs:
+#+identifier: 20240301T205929
+
+* Symbol
+** Symbol Composition
++ print name
+  The symbol's name.
++ value
+  The symbol's current value as variable.
++ function
+  The symbol's function definition.
++ property list
+  The symbol's property list.
+
+** Defining Symbols
++ 
+
+** Functions
++ function: symbolp symbol-name symbol-value symbol-plist
++ 
+
+* Variable
+** Variable Bindings
+*** Dynamic Binding
+
+*** Lexical Binding
+
+*** Buffer-Local Binding

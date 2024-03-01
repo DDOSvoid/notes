@@ -19,7 +19,8 @@
 |         |                                      |
 ** websites
 + [[https://remacs.cc/posts/][remacs的世界]]
-+ 
++ [[https://zhuanlan.zhihu.com/p/590083228][Magit 小记]]
+  
 * wsl
 ** websites
 + [[https://blog.csdn.net/xiangxianghehe/article/details/122856771][Ubuntu 22.04换国内源 清华源 阿里源 中科大源 163源]]
