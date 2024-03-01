@@ -40,7 +40,7 @@
 
 * git
 ** token
-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
+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
 ** websites
 + [[https://blog.csdn.net/weixin_43452467/article/details/121704661][remote: Support for password authentication was removed on August 13, 2021. Please use a personal ac]]
   
