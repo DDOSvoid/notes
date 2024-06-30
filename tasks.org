@@ -1,0 +1,4 @@
+* Reminders
++ [[https://emacs-china.org/t/emacs/12011][emacs 如何复制光标下的链接 - Org-mode - Emacs China]]
+** TODO eshell git status 没有颜色
+

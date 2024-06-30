@@ -1,0 +1,11 @@
+#+title:      Linux
+#+date:       [2024-06-24 Mon 22:13]
+#+filetags:   :linux:
+#+identifier: 20240624T221356
+
+* Linux
+** Package manager
+
+** Commandline tools
+*** curl
+[[denote:20240629T182037][curl]]

@@ -1,0 +1,47 @@
+#+title:      Vector
+#+date:       [2024-06-18 Tue 21:58]
+#+filetags:   :cpp:
+#+identifier: 20240618T215801
+
+* Vector
+** Reallocation
+~std::vector~ reallocates exponentially so that ~push_back~ is always O(1).
+
+Often, the exponent is 2 or 1.5. It's a trade off between time and space.
++ too high: reallocation will happen more frequently so that the constant of O(1) is larger;
++ too low: the space will be consumed quickly;
+
+** Implementation
+In basic implementation, you only need to maintain the first pointer, the last pointer, and the end pointer.
+
+** Usage
++ ~reserve(n)~: Increase the capacity of the vector to a value that's greater or equal to ~n~.
+  If ~n~ is greater than the current capacity(), new storage is allocated, otherwise the function does nothing. 
++ ~shrink_to_fit~: Requests the removal of unused capacity.
++ ~erase~:
+  Properly use ~erase~:
+  #+begin_src cpp
+    std::vector<int> vec{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+    // Erase all even numbers
+    for (auto it = vec.begin(); it != vec.end(); ) {
+      if (*it % 2 == 0) {
+        it = vec.erase(it);
+      } else {
+        ++it;
+      }
+    }
+
+    // Another way
+    vec.erase(std::remove_if(vec.begin(), vec.end(), [](int num) { return num % 2 == 0}), vec.end());
+  #+end_src
+
+** Iterator invalidation
+Iterators of an existing ~std::vector~ are invalid when
++ the capacity changes;
++ some elements are moved;
+
+This is a formula: $a^2 + b^2 = c^2$
+
+** Reference
++ [[https://en.cppreference.com/w/cpp/container/vector][std::vector - cppreference.com]]

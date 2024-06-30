@@ -3,8 +3,9 @@
 #+filetags:   :cpp:
 #+identifier: 20231224T180532
 
-* std::shared_ptr
+#+STARTUP: overview
 
+* std::shared_ptr
 * std::initializer
 ** Websites
 + [[https://zhuanlan.zhihu.com/p/353368820][大括号之谜——C++的列表初始化语法解析]]
@@ -45,4 +46,6 @@
 #+end_src
 
 因为std::array本身也是一个聚合类，类似于struct array { T data[N]; }
+* std::optional
++ [[https://zhuanlan.zhihu.com/p/639111975][C++ std::optional 使用教程]]
 

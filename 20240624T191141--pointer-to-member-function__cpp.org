@@ -1,0 +1,27 @@
+#+title:      Pointer to member function
+#+date:       [2024-06-24 Mon 19:11]
+#+filetags:   :cpp:
+#+identifier: 20240624T191141
+
+* Pointer to member function
+** Description
+A brief description:
++ A ptmf stores either the address of a non-virtual function or a vtable offset to a virtual function
++ A ptmf stores the rules to modify the instance pointer (for the implicit type conversion required when inheritance comes into play)
++ A ptmf stores the information whether the ptmf points to a virtual or a non-virtual function
++ A ptmfs type defines the function signature (of the ptmf)
++ A ptmfs type defines the class which ptmf is related to
+  
+** Syntax
+The syntax to define a ptmf is:
+=return_type (ClassName::*pointer_name)(argument_types) = &ClassName::member_function;=
+
+The syntax to invoce a ptmf is:
++ =.*= for the case the left hand side is an object reference
++ =->*= for the case the left hand side is an object pointer
++ use ~std::invoke~ when you're confused with =.*= and =->*=  
+And remember to use the parenthese. E.g. =(food->*GetName())();=
+
+** Reference
++ [[https://github.com/minlux/ptmf][minlux/ptmf: How C++ pointer to member function works]]
+  

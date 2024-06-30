@@ -1,0 +1,52 @@
+#+title:      Iterator
+#+date:       [2024-06-17 Mon 14:02]
+#+filetags:   :cpp:
+#+identifier: 20240617T140218
+
+#+STARTUP: overview
+
+* Iterator
+** Iterator categories
+|   Iterator category   |  write   |   read   | increment without multiple passes | increment with multiple passes | decrement | random access | contiguous storage |
+|          <c>          |   <c>    |   <c>    |                <c>                |              <c>               |    <c>    |      <c>      |        <c>         |
+|-----------------------+----------+----------+-----------------------------------+--------------------------------+-----------+---------------+--------------------|
+|       Iterator        |          |          |             Required              |                                |           |               |                    |
+|    OutputIterator     | Required |          |             Required              |                                |           |               |                    |
+|     InputIterator     |          | Required |             Required              |                                |           |               |                    |
+|    ForwardIterator    |          | Required |             Required              |            Required            |           |               |                    |
+| BidirectionalIterator |          | Required |             Required              |            Required            | Required  |               |                    |
+| RandomAccessIterator  |          | Required |             Required              |            Required            | Required  |   Required    |                    |
+|  ContiguousIterator   |          | Required |             Required              |            Required            | Required  |   Required    |      Required      |
+
+** Iterator operations
++ ~std::advance~
++ ~std::distance~
++ ~std::next~
++ ~std::prev~
++ ~std::ranges::advance~
++ ~std::ranges::distance~
++ ~std::ranges::next~
++ ~std::ranges::prev~
+
+** Iterator traits
+TODO
+
+** Stream iterator
++ ~std::istream_iterator~
++ ~std::ostream_iterator~
+
+Mostly used with ~std::copy~.
+
+** Iterator adaptors
+Created from iterators to perform different utilities:
++ ~std::reverse_iterator~
++ ~std::move_iterator~
+
+Created from containers:
++ ~std::back_insert_iterator~: call the container's ~push_back()~ member function;
++ ~std::front_insert_iterator~: call the container's ~push_front()~ member function;
++ ~std::insert_iterator~: call the container's ~insert()~ member function;
+They are all output iterators.
+
+** Reference
++ [[https://en.cppreference.com/w/cpp/iterator][Iterator library - cppreference.com]]

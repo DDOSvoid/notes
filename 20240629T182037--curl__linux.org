@@ -1,0 +1,61 @@
+#+title:      curl
+#+date:       [2024-06-29 Sat 18:20]
+#+filetags:   :linux:
+#+identifier: 20240629T182037
+
+* Curl
+** Curl exercises
++ 请求 [[https://httpbin.org]]
+  #+begin_src shell
+    curl https://httpbin.org
+  #+end_src
+  
++ 请求 [[https://httpbin.org/anything]]，它将会解析你发起的请求，并且在响应中回显。curl 默认发起的是 GET 请求。
+  #+begin_src shell
+    curl https://httpbin.org/anything
+  #+end_src
+  
++ 向 [[https://httpbin.org/anything]] ，发起POST请求
+  #+begin_src shell
+    curl -X POST https://httpbin.org/anything
+  #+end_src
+
++ 向 [[https://httpbin.org/anything]] 发起 GET 请求，但是这次需要添加一些查询参数（设置 value=panda）
+  #+begin_src shell
+    curl https://httpbin.org/anything?value=panda
+  #+end_src
+
++ 向 [[https://httpbin.org/anything]] 发起 GET 请求，并且设置请求头为 User-Agent: elephant
+  #+begin_src shell
+    curl -H "User-Agent: elephant" https://httpbin.org/anything
+  #+end_src
+
++ 向 [[https://httpbin.org/anything]] 发起 DELETE 请求
+  #+begin_src shell
+    curl -X DELETE https://httpbin.org/anything
+  #+end_src
+
++ 请求 [[https://httpbin.org/anything]] 并获取响应头信息
+  #+begin_src shell
+    curl -I https://httpbin.org/anything
+  #+end_src
+
++ 向 [[https://httpbin.com/anything]] 发起请求体为 JSON {"value": "panda"} 的 POST 请求
+  #+begin_src shell
+    curl -X POST -d '{"value": "panda"}' https://httpbin.org/anything
+  #+end_src
+
++ 发起与上一次相同的 POST 请求，但是这次要把请求头中的 Content-Type 字段设置成 application/json（因为 POST 请求需要一个
+  与请求体相匹配的 Content-Type 请求头字段）。查看响应体中的 json 字段，对比上一次得到的响应体
+  #+begin_src shell
+    curl -X POST -H "Content-Type: application/json" -d '{"value": "panda"}' https://httpbin.org/anything
+  #+end_src
+
++ 请求 [[https://httpbin.org/image/jpeg]] 并保存为文件，然后使用你的图片编辑器打开这个文件
+  #+begin_src shell
+    curl -o image.jpg https://httpbin.org/image/jpeg
+  #+end_src
+
+** Reference
++ [[https://jvns.ca/blog/2019/08/27/curl-exercises/][curl exercises]]
++ [[https://zhuanlan.zhihu.com/p/693273266][Linux入门之curl指令详解 - 知乎]]

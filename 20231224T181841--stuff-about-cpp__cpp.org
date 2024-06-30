@@ -3,6 +3,8 @@
 #+filetags:   :cpp:
 #+identifier: 20231224T181841
 
+#+STARTUP: overview
+
 * Implement a class that deconstruts subclass objects through a parent class pointer without a virtual destructor in the parent class
   [[https://zhuanlan.zhihu.com/p/662637642][C++面试真题！如何实现一个类，在父类没有虚析构函数的情况下，通过父类指针析构子类对象？]]
   #+begin_src c++
@@ -104,3 +106,27 @@
 
 + 什么时候不需要内存对齐：内存不对齐没有影响或内存吃紧 
   
+* Sharing global constants across multiple files (using inline variables)
++ [[https://www.learncpp.com/cpp-tutorial/sharing-global-constants-across-multiple-files-using-inline-variables/][7.9 — Sharing global constants across multiple files (using inline variables)]]
+
+* Fixed width integer types
+** When to use Fixed width integer types
+*** std::uintptr_t
+intptr_t and uintptr_t are used for address arithmetic, or sometimes to store data that may be a pointer or may be an integer.
+
++ [[https://stackoverflow.com/questions/40941825/understanding-void-against-intptr-t-and-uintptr-t][Understanding void* against intptr_t and uintptr_t]]
++ [[https://www.reddit.com/r/cpp_questions/comments/wcxmqi/help_with_uintptr_t/][help with uintptr_t]]
++ [[https://en.cppreference.com/w/cpp/types/integer][Fixed width integer types]]
+
+*** std::intX_t and std::uintX_t
+Always use std::intX_t to replace int, short, long, long long, along with unsigned version.
+
++ [[https://en.cppreference.com/w/cpp/types/integer][Fixed width integer types]]
++ [[https://leonardo2718.github.io/posts/programming/dont-use-fixed-width-integer-types-to-detect-type-size/][Don't use fixed-width integers to detect a type's size]]
++ [[https://github.com/isocpp/CppCoreGuidelines/issues/1507][Fixed-width integer types vs built-in types]]
++ [[https://stackoverflow.com/questions/57141453/when-should-i-use-the-c-fixed-width-integer-types-and-how-do-they-impact-perfo][When should I use the C++ fixed-width integer types and how do they impact performance?]]
+
+* char types, std::uint8_t and std::byte
+Use char for character types, std::byte for addressing units, and std::uint8_t for arithmetic types.
+
++ [[https://www.zhihu.com/question/56607671][C++17 新加入的 std::byte 是什么，有什么用？]]

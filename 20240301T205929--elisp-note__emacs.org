@@ -17,7 +17,7 @@
 ** Defining Symbols
 + 
 
-** Functions
+** Functions And Variables
 + function: symbolp symbol-name symbol-value symbol-plist
 + 
 
@@ -28,3 +28,17 @@
 *** Lexical Binding
 
 *** Buffer-Local Binding
+
+* Loading
+** How Emacs Do Loading
++ variable: load-path load-in-progress load-file-name
++ function: load load-file
+
+** Autoload
+
+** Features
+A feature name is a symbol that stands for a collection of functions, variables, etc. The file that defines them should provide the feature. Another program that uses them may ensure they are defined by requiring the feature. This loads the file of definitions if it hasn’t been loaded already.
+
+*** Functions And Variables
++ variable: features
++ function: provide require featurep

@@ -1,0 +1,12 @@
+#+title:      Span
+#+date:       [2024-06-24 Mon 16:17]
+#+filetags:   :cpp:
+#+identifier: 20240624T161748
+
+* Span
+~std::span~ is just a pointer with a size.
+
+** Implementation
+A typical implementation holds a pointer to T, if the extent is dynamic, the implementation also holds a size. 
+** Reference
++ [[https://en.cppreference.com/w/cpp/container/span][std::span - cppreference.com]]

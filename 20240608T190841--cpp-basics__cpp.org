@@ -1,0 +1,104 @@
+#+title:      Cpp Basics
+#+date:       [2024-06-08 Sat 19:08]
+#+filetags:   :cpp:
+#+identifier: 20240608T190841
+
+#+STARTUP: overview
+
+* Types
+** Fundamental types
+*** Integer and floating points
+**** Some covert facts
++ It's UB for signed integer to overflow.
++ It's UB for integers to be divided by 0.
++ All arithmetic operations will promote integers that are smaller than int to int first.
+
+**** Size of integers
+#+begin_src cpp
+  1 <= sizeof(char) <= sizeof(short) <= sizeof(int) <= sizeof(long) <= sizeof(long long)
+#+end_src
+
+Use std::intx_t and std::uintx_t to make it cross-platform.
+Note these types are only alias of signed char/short/int/long long.
+
+**** Bit manipulation of integers
++ BitCast
+  #+name: BitCast
+  #+begin_src cpp
+    template <typename T, typename U>
+    union Data {
+      T t;
+      U u;
+    };
+
+    template <typename To, typename From>
+    inline To BitCast(const From& src) {
+      static_assert(sizeof(To) == sizeof(From));
+      Data<From, To> data;
+      data.t = src;
+      return data.u;
+    }
+  #+end_src
+
+  Use std::bit_cast in C++20.
+
+**** Special values
+Check it in [[https://en.cppreference.com/w/cpp/types/numeric_limits][std::numeric_limits]].
+
+** Compound types
+*** Pointer and reference
+
+*** Pointer-to-member 
+
+*** array
+*** Function
+*** Enumeration
++ Use std::underlying_type<Enum>::type to get the integer type.
+  In C++23, you may also use std::to_underlying<Enum>(enum) to get the underlying integer directly.
+
+*** Class
+**** Special member functions
+[[denote:20240615T140029][Special member functions]]
+
+**** User-defined conversion function
+Enables implicit conversion or explicit conversion from a class type to another type.
+
+Reference:
++ [[https://en.cppreference.com/w/cpp/language/cast_operator][User-defined conversion function - cppreference.com]]
+** Conversion
+*** Implicit conversions
+[[denote:20240611T164724][Implicit conversions]]
+
+*** Explicit type conversions
+[[denote:20240614T184400][Explicit type conversions]]
+
+* Basic control flow
+** Switch
++ You can use ~using enum~ in C++20.
++ Use =[[fallthrough]]= when you don't break deliberately.
+
+* Function
+** Pointer to member function
+[[denote:20240624T191141][Pointer to member function]]
+
+** Functional library
+[[denote:20240624T195212][Functional library]]
+
+* Container
+** Array
+
+** Vector
+[[denote:20240618T215801][Vector]] 
+
+** Span
+[[denote:20240624T161748][Span]]
+
+** Deque
+[[denote:20240624T162324][Deque]]
+
+** Iterator
+[[denote:20240617T140218][Iterator]]
+
+** Ranges
+
+* Template

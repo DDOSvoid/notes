@@ -1,0 +1,22 @@
+#+title:      Deque
+#+date:       [2024-06-24 Mon 16:23]
+#+filetags:   :cpp:
+#+identifier: 20240624T162324
+
+* Deque
+** Implementation
+*** Possible implemenetation
+If amortized O(1) is acceptable, we can use dynamic circular queue to implement ~std::deque~. When it's full, reallocation
+like ~std::vector~ will happen.
+
+*** TODO Standard libraray implementation
+TODO
+
+** Iterator invalidation
+All iterators are seen as invalid after insertion.
++ This includes ~push_back~, ~push_front~, ~insert~, ~resize~, ~shrink_to_fit~ and ~clear~.
+
+Erasing from the front or the back will only invalidated the erased element, otherwise all iterators are invalidated.
+
+** Reference
++ [[https://en.cppreference.com/w/cpp/container/deque][std::deque - cppreference.com]] 

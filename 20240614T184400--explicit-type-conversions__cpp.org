@@ -1,0 +1,33 @@
+#+title:      Explicit type conversions
+#+date:       [2024-06-14 Fri 18:44]
+#+filetags:   :cpp:
+#+identifier: 20240614T184400
+
+* Explicit type conversions
+Converts between types using a combination of explicit and implicit conversions. 
+
+** const_cast conversion
+Only use const_cast to remove const and volatile.
+
+** static_cast conversion
+Use static_cast to replace [[denote:20240611T164724][implicit conversions]].
+
+** dynamic_cast conversion
+Never use dynamic_cast.
+
+** reinterpret_cast conversion
+Use reinterpret_cast when:
++ Retype references(only when you know what you're doing)
++ Retype pointers(only when you know what you're doing)
++ Obtain an address out of a pointer or build a pointer from an address
++ same-type conversion
+
+Note that reintepret_cast won't do any offset when performing up-cast, while static_cast will.
+
+** std::bit_cast
+
+** Reference
++ [[https://zhuanlan.zhihu.com/p/535996220?utm_id=0][深入理解C++中五种强制类型转换的使用场景 - 知乎]]
++ [[https://zhuanlan.zhihu.com/p/575121995][C++的类型转换 - 知乎]]
++ [[https://en.cppreference.com/w/cpp/language/explicit_cast][Explicit type conversion - cppreference.com]]
+

@@ -1,0 +1,23 @@
+#+title:      std::function
+#+date:       [2024-06-24 Mon 19:23]
+#+filetags:   :cpp:
+#+identifier: 20240624T192350
+
+* std::function
+** Usage
+Note you can use ~std::function~ to hold member function
+#+begin_src cpp
+  #include <string>
+  #include <functional>
+
+  struct A {
+      void foo(int) {}
+  };
+
+  int main() {
+      std::function<void(A*, int)> f1 = &A::foo;
+      std::function<void(A&, int)> f2 = &A::foo;
+      std::function<void(A, int)> f3 = &A::foo;
+      return 0;
+  }
+#+end_src

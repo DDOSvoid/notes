@@ -1,0 +1,24 @@
+#+title:      Implicit conversions
+#+date:       [2024-06-11 Tue 16:47]
+#+filetags:   :cpp:
+#+identifier: 20240611T164724
+
+* Implicit conversions
+Implicit conversions are performed whenever an expression of some type T1 is used in context that does not accept that type, but accepts some other type T2.
+
+** Order of the conversions
+Implicit conversion sequence consists of the following, in this order:
++ zero or one standard conversion sequence;
++ zero or one user-defined conversion;
++ zero or one standard conversion sequence (only if a user-defined conversion is used).
+  
+A user-defined conversion consists of zero or one non-explicit single-argument converting constructor or non-explicit conversion function call. 
+** Contextual conversions
+In some contexts, certain type will be expected and the implicit conversion will be performed if specific conditions are met.
+
+The comman case is bool.
+
+** Reference
++ [[https://en.cppreference.com/w/cpp/language/implicit_conversion][Implicit conversions - cppreference.com]]
++ [[https://www.cnblogs.com/apocelipes/p/14415033.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99][彻底理解c++的隐式类型转换 - apocelipes - 博客园]]
+

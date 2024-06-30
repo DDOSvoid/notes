@@ -1,0 +1,35 @@
+#+title:      Functional library
+#+date:       [2024-06-24 Mon 19:52]
+#+filetags:   :cpp:
+#+identifier: 20240624T195212
+
+* Functional library
+** std::function
+[[denote:20240624T192350][std::function]]
+
+** Predefined template functors
++ Wrappers: ~std::function~, ~std::mem_fn~, ~std::reference_wrapper~
++ Arithmetic operations: ~std::plus~, ~std::minus~, ~std::multiplies~, ~std::divide~, ~std::modulus~, ~std::negate~
++ Comparisons: ~std::equal_to~, ~std::not_equal_to~, ~std::greater~, ~std::less~, ~std::greater_equal~, ~std::less_equal~
++ Logical operations: ~std::logical_and~, ~std::logical_or~, ~std::logical_not~
++ Bitwise operations: ~std::bit_and~, ~std::bit_or~, ~std::bit_xor~, ~std::bit_not~
++ Negators: ~std::not_fn~
++ Identities: ~std::identity~
+
+*** Tips
++ All these functors have =auto operator()(const T&, const T&) const=.
+  Then, if you use =std::less<std::string>= in =std::set<std::string, std::less<std::string>=.
+  For =s.find("Hello, World")=, a temporary =std::string= will be constructed from ~"string"~.
+  But if =std::string= implements the less operator with =const char*=, then clearly the consturction is redundant.
+  So here you need to use =std::less<void>=, because it implements:
+  #+begin_src cpp
+    template<typename T, typename U>
+    bool operator()(const T& a, const U& b) const {
+      return a < b;
+    }
+  #+end_src
+  And you can use =std::less<>= as an abbreviation.
+
+  This is called transparent operator.
+  
+** Reference

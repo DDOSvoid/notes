@@ -3,26 +3,123 @@
 #+filetags:   :cheatsheet:
 #+identifier: 20231224T175327
 
+#+STARTUP: overview
+
 * emacs
 ** key bindings
-| key     | commands and desciption              |
-|---------+--------------------------------------|
-| C-c d n | denote                               |
-| C-c n f | consult-notes                        |
-| C-c C-, | org-insert-structure-template        |
-| C-c '   | org-edit-special (org-edit-src-code) |
-|         | denote-keywords-add                  |
-|         | denote-keywords-remove               |
-|         | denote-rename-file                   |
-| C-c C-c | with-editor-finish (magit)           |
-| C-x g   | magit-status                         |
-|         |                                      |
-** websites
-+ [[https://remacs.cc/posts/][remacs的世界]]
+*** common key bindings
+
+| key       | command                                | description         |
+|-----------+----------------------------------------+---------------------|
+| C-c d n   | denote                                 |                     |
+| C-c n f   | consult-notes                          |                     |
+| C-c C-,   | org-insert-structure-template          |                     |
+| C-c '     | org-edit-special (org-edit-src-code)   |                     |
+|           | denote-keywords-add                    |                     |
+|           | denote-keywords-remove                 |                     |
+|           | denote-rename-file                     |                     |
+| C-c C-c   | with-editor-finish (magit)             |                     |
+| C-x g     | magit-status                           |                     |
+| C-c p f   | projectile-find-file                   |                     |
+| C-c p 4 f | projectile-find-file-ogher-window      |                     |
+| C-c p F   | projectile-find-file-in-known-projects |                     |
+| C-c p p   | projectile-switch-project              |                     |
+| C-c p q   | projectile-switch-open-project         |                     |
+| C-c p ?   | projectile-find-references             |                     |
+| C-\       | toggle-input-method                    |                     |
+|           | comment-region                         | Comment the region. |
+|           |                                        |                     |
+
+*** basic operations
+
+| key     | commands and description   |
+|---------+----------------------------|
+| C-d     | delete-char                |
+| C-k     | crux-smart-kill-line       |
+| M-<     | begining-of-buffer         |
+| M->     | end-of-buffer              |
+| M-b     | backward-word              |
+| M-f     | forward-word               |
+| M-g g   | goto-line                  |
+| C-v     | scroll-up-command          |
+| M-v     | scroll-down-command        |
+| C-x C-c | save-buffers-kill-terminal |
+|         |                            |
+| C-x 4 f | find-file-other-window     |
+| M-`     | tmm-menubar                |
+|         |                            |
+
+*** org-mode key bindings
+
+
+
+| key         | command                         | description                                                                                  |
+|-------------+---------------------------------+----------------------------------------------------------------------------------------------|
+| C-c C-n     | org-next-visible-heading        |                                                                                              |
+| C-c C-p     | org-previous-visible-heading    |                                                                                              |
+| C-c C-f     | org-forward-heading-same-level  |                                                                                              |
+| C-c C-b     | org-backward-heading-same-level |                                                                                              |
+| C-x n s     | org-narrow-to-subtree           |                                                                                              |
+| C-x n w     | widen                           |                                                                                              |
+|-------------+---------------------------------+----------------------------------------------------------------------------------------------|
+| Table       |                                 |                                                                                              |
+|             |                                 |                                                                                              |
+| S-UP        |                                 |                                                                                              |
+| S-DOWN      |                                 |                                                                                              |
+| S-LEFT      |                                 |                                                                                              |
+| S-RIGHT     |                                 | Move a cell up, down, left, right by swapping with adjacent cell.                            |
+|             |                                 |                                                                                              |
+| M-S-LEFT    | org-shiftmetaleft               | Kill the current column.                                                                     |
+| M-S-RIGHT   | org-shiftmetaright              | Insert a new column to the left of point position.                                           |
+| M-S-UP      | org-shiftmetaup                 | Kill the current row or horizontal line.                                                     |
+| M-S-DOWN    | org-shiftmetadown               | Insert a new row above the current row.                                                      |
+|             |                                 |                                                                                              |
+| C-c -       | org-ctrl-c-minus                | Insert a horizontal line below current row.                                                  |
+| C-c RET     | org-ctrl-c-ret                  | Insert a horizontal line below current row, and move the point into the row below that line. |
+|-------------+---------------------------------+----------------------------------------------------------------------------------------------|
+| Properties  |                                 |                                                                                              |
+|             |                                 |                                                                                              |
+| C-c C-x p   | org-set-property                |                                                                                              |
+| C-c C-c d   |                                 | Remove a property from the current entry.                                                    |
+|-------------+---------------------------------+----------------------------------------------------------------------------------------------|
+| Time Stamps |                                 |                                                                                              |
+|             |                                 |                                                                                              |
+| C-c .       | org-time-stamp                  |                                                                                              |
+|             |                                 |                                                                                              |
+
+*** calc key bindings
+
+[[https://www.gnu.org/software/emacs/manual/html_node/calc/index.html][calc manual]]
+
+| key | commands and descriptions |
+|     |                           |
+| n   | calc-change-sign          |
+| &   | calc-inv                  |
+| Q   | calc-sqrt                 |
+| f h | calc-hypot                |
+| '   | calc-algebraic-entry      |
+| d r | calc-radix                |
+|     |                           |
+
+** blog
++ [[https://remacs.fun/posts/][remacs的世界]]
 + [[https://zhuanlan.zhihu.com/p/590083228][Magit 小记]]
   
+** config
++ [[https://github.com/wowhxj/emacs-from-scratch/tree/master][emacs-from-scratch/emacs-config.org at master · wowhxj/emacs-from-scratch]]
+  
+** problems
++ [[https://emacs-china.org/t/c-x-b-1342178087-is-not-a-valid-key-definition-see-key-valid-p/23942][C-x b 报错 1342178087 is not a valid key definition; see key-valid-p’]]
+  
+** code style
++ [[https://emacs-china.org/t/emacs/19319][我想了解下, emacs 下的缩进到底是怎么设置的…?😥]]
++ [[https://github.com/condy0919/.emacs.d/blob/master/lisp/lang/init-cpp.el#L42][condy0919/.emacs.d]]
++ [[https://emacs-china.org/t/emacs-c/22337][请教 emacs 开发 c++ 项目缩进等如何控制]]
++ [[https://yygcode.com/blogs/2020/01/emacs-c-style.html][Emacs C/C++代码版面设置]]
++ [[https://github.com/yygcode/.emacs.d/blob/master/config.org#cc-style][yygcode/.emacs.d]]
+  
 * wsl
-** websites
+** problem and solutions
 + [[https://blog.csdn.net/xiangxianghehe/article/details/122856771][Ubuntu 22.04换国内源 清华源 阿里源 中科大源 163源]]
 + [[https://blog.csdn.net/fangye945a/article/details/123832623][WSL2启动时提示：参考的对象类型不支持尝试的操作]]
 + [[https://blog.csdn.net/dddgggd/article/details/132306786][安装WSL时，出现错误0x800701bc]]
@@ -40,8 +137,60 @@
 
 * git
 ** token
-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
+
 ** websites
 + [[https://blog.csdn.net/weixin_43452467/article/details/121704661][remote: Support for password authentication was removed on August 13, 2021. Please use a personal ac]]
   
+* voidjs
+** JSValue, HeapObject, JSHandle, JSHandleScope and GC
+所有的 Heap Object 都存儲在 Heap Space。
+
+JSValue 只有一個數據成員 value，value 是一個 64 位整數，表示一個地址，通常用來存放 Heap Object 的地址，從某種角度上可以認爲 JSValue 是一個指向 Heap Object 的一級指針。
+
+JSHandle 只有一個數據成員 address，address 是一個 64 位整數，表示一個地址，用來存放一個指向 Heap Object 的指針的地址，可以認爲 JSHandle 是一個指向 Heap Object 的二級指針，而 address 本身可以看成是一個指向 Handle Scope Space 的指針。通常 JSHandle 可以通過一個 JSValue 或 HeapObject 來構造，這會在 Handle Scope Space 創建一個指針，這個指針指向所傳入的 Heap Object，address 則指向該指針。
+
+每個 JSHandleScope 可以認爲擁有一段內存空間，我們稱其爲 Handle Scope Space（當然實際情況是所有 JSHandleScope 的 Handle Scope Space 是連續的，每個 JSHandleScope 只佔用其中連續的一部分），這個 Handle Scope Space 中保存了若干個指向 Heap Object 的指針。這些指針是我們在這個 Scope 中構造一個 JSHandle 時所創建的，別忘了 JSHandle 的數據成員 address 正是存儲了這些指針的地址。
+
+GC 在執行的時候會遍歷 Heap Space，然後回收那些不可達的 Heap Object，而被 Handle Scope Space 中的指針所指向的 Heap Object 則被認爲是可達的，所以 JSHandleScope 和 JSHandle 的作用是保護部分 Heap Object 不被 GC 回收。
+
+** HeapObject 的設計
+存 JSValue 和存 JSValueType（std::uint64_t）是一樣的，不如直接存 JSValue
+
+** Function Declaration and Function Expression
+Function Declaration 的 Scope 屬性是實例化該函數時的 Excecution Context 的 Variable Environment。
+具名 Function Expression 的 Scope 的屬性是則是在實例化是創建的新的 Lexical Envioronment，該 Environment 的 outer 屬性指向實例化該函數時的 Execution Context 的 Lexical Environment。
+匿名 Function Expression 和 Function Declaration 類似，它的 Scope 屬性是實例化該函數時的 Execution Context 的 Lexical Environment。
+那麼爲什麼具名 Function Expression 的 Scope 與另外兩者不同，原因在於具名 Function Expression 可以認爲有兩個名字，考慮以下語句：
+
+#+begin_src javascript
+  var foo = function fib (n) { return n < 2 ? 1 : fib(n - 2) + fib(n - 1); } 
+#+end_src
+
+容易發現對於具名 Function Expression，創建一個新的 Lexcial Environment 是爲了方便遞歸，這個新的 Lexical Environment 中只綁定了 fib 這個名字。
+
+** Call Expression
+*** EnterFunctionCode
+創建一個新的 Execution Context，並將其 Lexical Environment 和 Variable Environment 的 outer 指向函數的 Scope 屬性。
+
+*** DeclarationBindingInstantiation
+聲明函數體內的所有 Variable Declaration 和 Function Declaration。
+
+*** EvalStatementList
+依次執行函數體內的所有語句。
+
+* gtest
+
+| command                      | description       |
+|------------------------------+-------------------|
+| --gtest_filter=FooTest.*     |                   |
+| --gtest_filter=FooTest.Test1 |                   |
+| --gtest_repeat=1000          | repeat 1000 times |
+| --gtest_color=(yes/no/auto)  |                   |
+|                              |                   |
+|                              |                   |
+
+* other
+** websites
++ [[https://zhuanlan.zhihu.com/p/671765629][clangd逆天bug，GCC编译器iostream' file not foundclang(pp_file_not_found)]]
++ 
 

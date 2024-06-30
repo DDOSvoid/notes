@@ -1,0 +1,98 @@
+#+title:      Special member functions
+#+date:       [2024-06-15 Sat 14:00]
+#+filetags:   :cpp:
+#+identifier: 20240615T140029
+
+* Special member functions
+** Default constructor
+If no user-declared constructors of any kind are provided for a class type, the compiler will always declare a default
+constructor as an inline public member of its class.
+
+*** Trivial default constructor
+The default constructor for class T is trivial (i.e. performs no action) if all of the following is true:
++ The constructor is not user-provided (i.e., is implicitly-defined or defaulted on its first declaration).
++ T has no virtual member functions.
++ T has no virtual base classes. 
++ T has no non-static members with default initializers. 
++ Every direct base of T has a trivial default constructor.
++ Every non-static member of class type (or array thereof) has a trivial default constructor. 
+
+A trivial default constructor is a constructor that performs no action. All data types compatible with the C
+language (POD types) are trivially default-constructible. 
+
+** Copy constructor
+If no user-defined copy constructors are provided for a class type, the compiler will always declare a copy constructor
+as a non-explicit inline public member of its class.
+
+The implicitly-declared copy constructor for class T is defined as deleted if T declares a move constructor or move
+assignment operator.
+
+*** Trivial copy constructor
+The copy constructor for class T is trivial if all of the following are true:
++ it is not user-provided (that is, it is implicitly-defined or defaulted);
++ T has no virtual member functions;
++ T has no virtual base classes;
++ the copy constructor selected for every direct base of T is trivial;
++ the copy constructor selected for every non-static class type (or array of class type) member of T is trivial; 
+
+** Move constructor
+If no user-defined move constructors are provided for a class type, and all of the following is true:
++ there are no user-declared copy constructors;
++ there are no user-declared copy assignment operators;
++ there are no user-declared move assignment operators;
++ there is no user-declared destructor. 
+
+*** Trivial move constructor
+The move constructor for class T is trivial if all of the following is true:
++ it is not user-provided (meaning, it is implicitly-defined or defaulted);
++ T has no virtual member functions;
++ T has no virtual base classes;
++ the move constructor selected for every direct base of T is trivial;
++ the move constructor selected for every non-static class type (or array of class type) member of T is trivial. 
+
+** Copy assignment operator
+If no user-defined copy assignment operators are provided for a class type, the compiler will always declare one as an
+inline public member of the class.
+
+*** Trivial copy assignmen operator
+The copy assignment operator for class T is trivial if all of the following is true:
++ it is not user-provided (meaning, it is implicitly-defined or defaulted);
++ T has no virtual member functions;
++ T has no virtual base classes;
++ the copy assignment operator selected for every direct base of T is trivial;
++ the copy assignment operator selected for every non-static class type (or array of class type) member of T is trivial.
+
+** Move assignment operator
+If no user-defined move assignment operators are provided for a class type, and all of the following is true:
++ there are no user-declared copy constructors;
++ there are no user-declared move constructors;
++ there are no user-declared copy assignment operators;
++ there is no user-declared destructor;
+
+*** Trivial move assignment operator
+The move assignment operator for class T is trivial if all of the following is true:
++ It is not user-provided (meaning, it is implicitly-defined or defaulted);
++ T has no virtual member functions;
++ T has no virtual base classes;
++ the move assignment operator selected for every direct base of T is trivial;
++ the move assignment operator selected for every non-static class type (or array of class type) member of T is trivial.
+
+** Destructor
+If no user-declared destructor is provided for a class type, the compiler will always declare a destructor as an inline
+public member of its class.
+
+*** Trivial desctructor
+The destructor for class T is trivial if all of the following is true:
++ The destructor is not user-provided (meaning, it is either implicitly declared, or explicitly defined as defaulted on
+  its first declaration).
++ The destructor is not virtual (that is, the base class destructor is not virtual).
++ All direct base classes have trivial destructors.
++ All non-static data members of class type (or array of class type) have trivial destructors. 
+
+** Reference
++ [[https://en.cppreference.com/w/cpp/language/default_constructor][Default constructors - cppreference.com]]
++ [[https://en.cppreference.com/w/cpp/language/copy_constructor][Copy constructors - cppreference.com]]
++ [[https://en.cppreference.com/w/cpp/language/move_constructor][Move constructors - cppreference.com]]
++ [[https://en.cppreference.com/w/cpp/language/copy_assignment][Copy assignment operator - cppreference.com]]
++ [[https://en.cppreference.com/w/cpp/language/move_assignment][Move assignment operator - cppreference.com]]
++ [[https://en.cppreference.com/w/cpp/language/destructor][Destructors - cppreference.com]]
